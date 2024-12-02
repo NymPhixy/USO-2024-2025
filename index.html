@@ -26,11 +26,61 @@
     <!-- Hero Sectie -->
     <header class="hero">
       <div class="hero-content">
-        <h1>Welkom bij Digno Computers</h1>
-        <p>U kunt bij DIGNO terecht voor al uw computerwensen.</p>
-        <a href="./keuzemenu.html" class="hero-button">Ontdek meer</a>
+        <div id="hero-content-container">
+          <h1>Welkom bij Digno Computers</h1>
+          <p>U kunt bij DIGNO terecht voor al uw computerwensen.</p>
+          <a href="./keuzemenu.html" class="hero-button">Direct aanmelden</a>
+        </div>
+        <form id="aanmeld-formulier" class="form-container" action="/action_page.php">
+          <div>
+            <h2>Direct aanmelden</h2>
+            <p>Vul het formulier in en wij nemen zo snel mogelijk contact met u op.</p>
+          </div>
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="firstname" placeholder="Your name..">
+      
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+      
+          <label for="country">Country</label>
+          <select id="country" name="country">
+            <option value="australia">Australia</option>
+            <option value="canada">Canada</option>
+            <option value="usa">USA</option>
+          </select>
+        
+          <div class="flex-row">
+            <input type="reset" value="Annuleren">            
+            <input type="submit" value="Ticket aanvragen">
+          </div>
+          
+        </form>
       </div>
     </header>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const heroContentContainer = document.getElementById("hero-content-container");
+      const aanmeldFormulier = document.getElementById("aanmeld-formulier");
+      const heroButton = document.querySelector(".hero-button");
+      const resetButton = aanmeldFormulier.querySelector("input[type='reset']");
+
+      // Hide the form by default
+      aanmeldFormulier.style.display = "none";
+
+      heroButton.addEventListener("click", function(event) {
+        event.preventDefault();
+        heroContentContainer.style.display = "none";
+        aanmeldFormulier.style.display = "block";
+      });
+
+      resetButton.addEventListener("click", function(event) {
+        event.preventDefault();
+        aanmeldFormulier.style.display = "none";
+        heroContentContainer.style.display = "block";
+      });
+    });
+  </script>
+  
     <footer class="footer">
       <div class="footer-section">
         <img src="./logo_icon_nav.png" alt="Digno Logo" class="footer-logo" />
